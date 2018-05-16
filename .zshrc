@@ -105,6 +105,7 @@ alias helmi='helm install'
 alias codiff='code --diff'
 alias dockerclean='docker stop $(docker ps -aq) && docker rm $(docker ps -aq)'
 alias gusch='git push origin $(git rev-parse --abbrev-ref HEAD)'
+alias drainpostgresdbconns='~/.my_scripts/drain_db.sh'
 
 # NANO in nowrap mode
 alias nano='nano -w'
