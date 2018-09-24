@@ -1,0 +1,328 @@
+# Polybar config
+
+# Colors based on gruvbox color scheme
+[colors]
+background = #282828
+#foreground = #EBDBB2
+foreground = #FFFFFF
+disabled = #928374
+
+red = #CC241D
+yellow = #D79921
+green = #98971A
+purple = #B16286
+blue = #458588
+black = #282828
+
+[bar/kde]
+monitor = eDP1
+
+width = 100%
+height = 45
+enable-ipc = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+spacing = 3
+lineheight = 20
+padding-left = 0
+padding-right = 5
+module-margin-left = 0
+module-margin-right = 5
+
+#font-1 = ypn envypn:pixelsize=24;0
+#font-2 = Roboto:size=19;2
+font-2 = MesloLGM Nerd Font:size=19;0
+#font-1 = Material Icons:size=20;3
+#font-0 = Font Awesome 5 Free:pixelsize=19;0
+#font-0 = DejaVuSansMono Nerd Font Mono:size=22;0
+
+#font-0 = Noto Sans:pixelsize=13;0
+font-0 = Font Awesome 5 Free:size=14;-2
+font-1 = Wuncon Siji:pixelsize=10;0
+
+modules-left = ewmh music
+modules-center = date
+modules-right = xbacklight volume disk wireless-network battery
+
+[bar/main-sway]
+width = 100%
+height = 45
+enable-ipc = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+spacing = 3
+lineheight = 20
+padding-left = 0
+padding-right = 5
+module-margin-left = 0
+module-margin-right = 5
+
+font-1 = envpn:pixelsize=24;0
+font-4 = Roboto:size=19;2
+font-0 = NotoSans:pixelsize=19;1
+font-2 = MaterialIcons:size=19;3
+font-3 = FontAwesome:size=24;2
+
+modules-left = i3 music
+modules-center = date
+modules-right = volume disk wireless-network battery
+
+[bar/main]
+monitor = eDP1
+
+width = 100%
+height = 45
+enable-ipc = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+spacing = 3
+lineheight = 20
+padding-left = 0
+padding-right = 5
+module-margin-left = 0
+module-margin-right = 5
+
+font-4 = envpn:pixlsize=24;0
+font-0 = Roboto:size=19;2
+font-1 = NotoSans:pixelsize=19;1
+font-3 = MaterialIcons:size=19;3
+font-2 = FontAwesome:size=24;2
+
+modules-left = i3 music
+modules-center = date
+modules-right = xbacklight volume disk wireless-network battery
+
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.red}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.yellow}
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = █
+bar-capacity-fill-foreground = ${colors.foreground}
+bar-capacity-fill-font = 3
+bar-capacity-empty = █
+bar-capacity-empty-font = 3
+bar-capacity-empty-foreground = ${colors.foreground}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+animation-charging-foreground = ${colors.green}
+
+[module/date]
+type = internal/date
+date = %A, %d %B %Y | %H:%M
+
+[module/disk]
+type = internal/fs
+
+format-mounted = <label-mounted>
+label-mounted =    %used% / %total%
+
+mount-0 = /
+
+interval = 360
+
+[module/ewmh]
+type = internal/xworkspaces
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+
+; Create click handler used to focus desktop
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle desktops
+; Default: true
+enable-scroll = false
+
+label-active = %icon%
+label-active-foreground = #ffffff
+label-active-background = #3f3f3f
+label-active-underline = #fba922
+label-active-padding = 2
+
+label-occupied = %icon%
+
+label-empty = %icon%
+label-empty-padding = 2
+
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 2
+
+icon-0 = Web;🌎
+icon-1 = Shell;
+icon-2 = Comm;
+icon-3 = Development 1;
+icon-4 = Development 2;
+icon-5 = Desktop 6;
+icon-6 = Desktop 7;
+icon-7 = Desktop 8;
+icon-8 = Desktop 9;
+icon-9 = Music;🎜
+icon-10 = 11;
+icon-11 = 12;
+icon-12 = 13;
+icon-13 = 14;O
+icon-14 = 15;P
+icon-15 = 16;J
+icon-16 = 17;K
+icon-17 = 18;
+icon-18 = 19;
+icon-19 = 20;
+icon-default = 
+
+[module/i3]
+type = internal/i3
+
+#pin-workspaces = true
+
+        ws-icon-0 = 1;
+        ws-icon-1 = 2;
+        ws-icon-2 = 3;
+        ws-icon-3 = 4;
+        ws-icon-4 = 5;
+        ws-icon-5 = 6;
+        ws-icon-6 = 7;
+        ws-icon-7 = 8;
+        ws-icon-8 = 9;
+        ws-icon-9 = 10;🎜
+        ws-icon-10 = 11;
+        ws-icon-11 = 12;
+        ws-icon-12 = 13;
+        ws-icon-13 = 14;O
+        ws-icon-14 = 15;P
+        ws-icon-15 = 16;J
+        ws-icon-16 = 17;K
+        ws-icon-17 = 18;
+        ws-icon-18 = 19;
+        ws-icon-19 = 20;
+        ws-icon-default = 
+
+        label-focused = %icon%
+        label-focused-foreground = #ffffff
+        label-focused-background = #3f3f3f
+        label-focused-underline = #26D292
+        label-focused-padding = 2
+
+        label-unfocused = %icon%
+        label-unfocused-padding = 2
+
+        label-visible = %icon%
+        label-visible-underline = #555555
+        label-visible-padding = 2
+
+        label-urgent = %icon%
+        label-urgent-foreground = #000000
+        label-urgent-background = #bd2c40
+        label-urgent-padding = 2
+
+#index-sort = true
+
+#format = <label-state> <label-mode>
+#format-underline = ${colors.foreground}
+
+#label-focused = 
+#label-focused-foreground = ${colors.foreground}
+#label-focused-font = 2
+#label-focused-padding = 4
+
+#label-unfocused = 
+#label-unfocused-foreground = ${colors.disabled}
+#label-unfocused-font = 2
+#label-unfocused-padding = 4
+
+#label-urgent = 
+#label-urgent-foreground = ${colors.red}
+#label-urgent-font = 2
+#label-urgent-padding = 4
+
+[module/music]
+type = custom/script
+interval = 1
+
+label =  %output%
+exec = ~/.config/polybar/music
+
+[module/volume]
+type = internal/volume
+; speaker_mixer = Speaker
+; headphone_mixer = Headphone
+; headphone_control_numid = 9
+
+format-volume = <bar-volume>
+format-volume-prefix = "  "
+format-volume-foreground = ${colors.foreground}
+
+format-muted-prefix = "  "
+format-muted-foreground = ${colors.disabled}
+label-muted = " ○○○○○○○○○○"
+
+bar-volume-width = 10
+bar-volume-gradient = false
+bar-volume-indicator = ●
+bar-volume-fill = ●
+bar-volume-empty = ○
+bar-volume-empty-foreground = ${colors.foreground}
+
+[module/wireless-network]
+type = internal/network
+interface = wlp2s0
+interval = 5
+ping-interval = 10
+
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid%
+label-disconnected =   not connected
+label-disconnected-foreground = ${colors.disabled}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = 
+label-foreground = ${colors.foreground}
+
+bar-width = 10
+bar-indicator = ●
+bar-fill = ●
+bar-empty = ○
+bar-empty-foreground = ${colors.disabled}
+
+; vim:ft=dosini

@@ -23,11 +23,12 @@ dpi = 180
 
 bottom = false
 width = 100%
-height = 60
+height = 45
 offset-x = 0
 offset-y = 0
 radius = 0.0
 fixed-center = true
+
 
 #background = ${colors.background_i3wmthemer}
 background = #00000000
@@ -35,7 +36,7 @@ foreground = #FFFFFF
 #foreground =  ${colors.foreground_i3wmthemer}
 
 line-size = 2.5
-line-color = #FFFFFF
+line-color = ${colors.color04_i3wmthemer}
 
 border-size = 0
 border-color = ${colors.color02_i3wmthemer}
@@ -46,23 +47,23 @@ padding-right = 1
 module-margin-left = 0
 module-margin-right = 3
 
-font-1 = TerminessTTF Nerd Font:style=Bold:size:12
-font-0 = Hack:style=Bold:fontformat=truetype:size=11
+#font-0 = Knack Nerd Font Mono:fontformat=truetype:size=15;1
+font-0 = TerminessTTF Nerd Font Mono:fontformat=truetype:size=13;1
 #font-1 = FontAwesome:fontformat=truetype:size=10
 
 modules-left = i3 music
 modules-center = date
-modules-right = xbacklight volume wireless-network battery
+modules-right = github xbacklight volume wireless-network battery
 
-# tray-position = right
+tray-position = right
 # tray-padding = 9
 # tray-transparent = false
 #tray-offset-y = 10%
 #tray-offset-x = 10%
 # tray-maxsize = 18
-# tray-detached = true
-#tray-background = ${colors.background_i3wmthemer}
-# tray-scale = 1.0
+x# tray-detached = false
+tray-background = ${colors.background_i3wmthemer}
+tray-scale = 1.0
 
 wm-restack = i3
 
@@ -94,8 +95,8 @@ ws-icon-default = 
 
 type = internal/i3
 
-label-unfocused-background = #0000000
-label-unfocused-foreground = #FFFFFF
+label-unfocused-background = ${colors.background_i3wmthemer}
+label-unfocused-foreground = ${colors.foreground_i3wmthemer}
 
 
 label-mode = %icon%
@@ -103,9 +104,9 @@ label-mode-padding = 1
 label-mode-background = ${colors.color04_i3wmthemer}
 
 label-focused = %icon%
-label-focused-foreground = #000000
-label-focused-background = #FFFFFF
-label-focused-underline = #0000000
+label-focused-foreground = ${colors.foreground_i3wmthemer}
+label-focused-background = ${colors.color09_i3wmthemer}
+label-focused-underline = ${colors.color09_i3wmthemer}
 label-focused-padding = 1
 
 label-unfocused = %icon%
@@ -117,8 +118,8 @@ label-visible-underline = ${colors.color04_i3wmthemer}
 label-visible-padding = 1
 
 label-urgent = %icon%
-label-urgent-foreground = #FF0000
-label-urgent-background = #0000000
+label-urgent-foreground = ${colors.background_i3wmthemer}
+label-urgent-background = ${colors.background_i3wmthemer}
 ;label-urgent-underline = ${colors.color08_i3wmthemer}
 label-urgent-padding = 1
 
@@ -134,6 +135,7 @@ time = "%a %b %d, %H:%M"
 time-alt = %H:%M
 
 format-prefix-foreground = ${colors.foreground_i3wmthemer}
+format-underline = ${colors.color04_i3wmthemer}
 
 label = %date% %time%
 
@@ -152,8 +154,10 @@ type = internal/volume
 
 format-volume = <ramp-volume> <label-volume>
 format-volume-prefix = " "
+format-volume-foreground = ${colors.foreground_i3wmthemer}
+
 format-muted-prefix = " "
-format-muted-foreground = #ff0000
+format-muted-foreground = ${colors.color09_i3wmthemer}
 ;label-muted = " ○○○○○○○○○○"
 label-muted = "muted"
 
@@ -172,7 +176,7 @@ ping-interval = 10
 format-connected = <ramp-signal> <label-connected>
 label-connected = %essid%
 label-disconnected =   not connected
-label-disconnected-foreground = #FF0000
+label-disconnected-foreground = ${colors.color09_i3wmthemer}
 
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -185,13 +189,13 @@ type = internal/xbacklight
 
 format = <label> <bar>
 label = 
-label-foreground = #FFFFFF
+label-foreground = ${colors.foreground_i3wmthemer}
 
 bar-width = 10
 bar-indicator = ●
 bar-fill = ●
 bar-empty = ○
-bar-empty-foreground = #FFFFFF
+bar-empty-foreground = ${colors.color09_i3wmthemer}
 
 [module/battery]
 type = internal/battery
@@ -240,5 +244,5 @@ interval = 10
 
 format = <label>
 label =  %notifications%
-label-foreground = #FFFFFF
+label-foreground = ${colors.foreground_i3wmthemer}
 
